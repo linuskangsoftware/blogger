@@ -1,0 +1,13 @@
+{
+    "port": 4100,
+    "host": "0.0.0.0",
+    "admins": {
+        "root": {
+            "password": "admin"
+        }
+    },
+    "blog": {
+        "blog_name": "Linus's Blog",
+        "blog_description": "Linus's Blog is a blog about technology, programming, and more."
+    }
+}

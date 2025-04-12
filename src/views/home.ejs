@@ -1,0 +1,62 @@
+<!-- © 2025 Linus Kang. All rights reserved. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Linus's Blog</title>
+  <link rel="stylesheet" href="/src/home/styles.css" />
+</head>
+<body>
+    <header>
+      <h1 id="blog-name">Blog</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/blog/posts">Blog Posts</a>
+      </nav>
+    </header>
+    <main>
+      <div class="profile">
+        <img src="/src/profile_picture" alt="Profile Picture" class="profile-pic" />
+        <div class="profile-text">
+          <p>Hi! I'm a Student Web Developer, Open-source contributor, and a Robotics Enthusiast. For the past year, I've been deeply involved with First Lego League competeting with my team <a style="text-decoration: underline; font-weight: 500;" href="https://github.com/linuskangsoftware/blogger">Bleulegs</a>, now competing in the Internationals Round.</p>
+        </div>
+      </div>
+      <h2>Recent blog posts</h2>
+        <div class="posts">
+          <% posts.forEach(post => { %>
+            <article class="post-card">
+              <img src="<%= post.coverImage || '/default.jpg' %>" alt="Cover Image" class="cover" />
+              <div class="content">
+                <span class="badge"><%= post.badge || "General" %></span>
+                <h2><a href="/post/<%= post.slug %>"><%= post.title %></a></h2>
+                <p class="date"><%= post.date %></p>
+                <p class="preview"><%= post.preview || 'Click to read more...' %></p>
+                <a class="read-more" href="/post/<%= post.slug %>">Read more →</a>
+              </div>
+            </article>
+          <% }); %>
+        </div>
+        <h2 style="margin-top: 40px; margin-bottom: 20px;">Featured Projects</h2>
+    </main>
+    <footer>
+      <p>Made by <a href="https://github.com/linuskangsoftware/">@linuskangsoftware</a> using <a href="https://github.com/linuskangsoftware/">Blogger</a></p>
+    </footer>
+  </body>
+<script>
+    async function fetchBlogName() {
+      try {
+        const res = await fetch("/v1/name", {
+          method: "GET"
+        });
+        const data = await res.json();
+        const loginTitle = document.getElementById("blog-name");
+        loginTitle.textContent = `${data.name}`;
+      } catch (err) {
+        console.error("Error fetching blog name:", err);
+      }
+    }
+    fetchBlogName();
+</script>
+</html>

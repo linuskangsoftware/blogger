@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blogger | <%= title %></title>
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/themes/prism-tomorrow.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #121212;
+      --card-bg: #1e1e1e;
+      --text: #ffffff;
+      --subtle: #b0b0b0;
+      --accent: #60a5fa;
+      --border-radius: 12px;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      line-height: 1.8;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+        opacity: 0.8;
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--card-bg);
+    }
+
+    h1#blog-name {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    nav a {
+      margin-left: 20px;
+    }
+
+    nav a:first-child {
+      margin-left: 0;
+    }
+
+    .container {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 40px 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .post-title {
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .metadata {
+      font-size: 0.95rem;
+      color: var(--subtle);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .tags {
+        display: inline-block;
+        background-color: var(--accent);
+        color: #fff;
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        white-space: nowrap;
+        margin-left: 10px;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+
+    article {
+      margin-top: 30px;
+    }
+
+    article p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    pre[class*="language-"] {
+      margin: 24px 0;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .back-link {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .back-link a {
+      font-size: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--subtle);
+      margin-top: 60px;
+    }
+
+    .post-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <h1 id="blog-name">Blog</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a id="loginbutton" href="/login">Login</a>
+      <a id="myaccount" href="/my/account">My Account</a>
+    </nav>
+  </header>
+
+  <!-- Blog Post Content -->
+  <div class="container">
+    <div class="post-header">
+        <div class="post-title"><%= title %></div>
+        <div class="tags">
+            <%= tags.length > 0 ? tags.join(", ") : "None" %>
+        </div>
+    </div>
+
+    <div class="metadata">
+      <span>Author: <%= author %></span>
+      <span>Date: <%= date %></span>
+    </div>
+
+    <article>
+      <div><%- content %></div>
+    </article>
+
+    <div class="back-link">
+      <a href="/">← Back to Blog</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>This site is powered by <a href="https://github.com/linuskangsoftware/blogger">Blogger</a></p>
+  </footer>
+
+  <script src="/src/credit.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/prism.js"></script>
+  <script>
+    async function fetchBlogName() {
+      try {
+        const res = await fetch("/v1/name");
+        const data = await res.json();
+        document.getElementById("blog-name").textContent = data.name;
+      } catch (err) {
+        console.error("Error fetching blog name:", err);
+      }
+    }
+
+    async function checkSessionToken(sessionId) {
+      try {
+        const res = await fetch(`/account/session?sessionId=${sessionId}`);
+        const data = await res.json();
+        if (data.message === "Session is valid") {
+          document.getElementById("loginbutton").style.display = "none";
+        } else {
+          document.getElementById("myaccount").style.display = "none";
+        }
+      } catch (err) {
+        console.error("Session check failed:", err);
+      }
+    }
+
+    function logout(event) {
+      event.preventDefault();
+      localStorage.removeItem("sessionId");
+      window.location.href = "/login";
+    }
+
+    const sessionId = localStorage.getItem("sessionId");
+    fetchBlogName();
+    checkSessionToken(sessionId);
+  </script>
+</body>
+</html>
