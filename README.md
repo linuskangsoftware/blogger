@@ -1,4 +1,7 @@
 ## Blogger: A Nodejs framework for creating blogging sites.
+![Static Badge](https://img.shields.io/badge/v1.0.0-Build%20104-blue)
+![GitHub Release Date](https://img.shields.io/github/release-date/linuskangsoftware/blogger)
+
 Blogger is a all-in-one nodejs framework for people who want a simple, sleek blogging site. This is the exact framework powering my own Blog Site, which you can find at https://blog.linuskang.au.
 
 ### Getting Started
