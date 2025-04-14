@@ -26,8 +26,13 @@ router.get("/post/:slug", (req, res) => {
 
 
 router.get("/", (req, res) => {
-    const posts = getNumberOfPosts(4);
+    const posts = getNumberOfPosts(2);
     res.render("home", { posts });
+});
+
+router.get("/blog/posts", (req, res) => {
+    const posts = getPosts();
+    res.render("posts", { posts });
 });
 
 router.get("/admin/logs", (req, res) => {

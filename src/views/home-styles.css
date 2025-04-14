@@ -262,7 +262,7 @@ font-weight: bold;
 font-size: 0.95rem;
 color: var(--accent);
 margin-top: auto;
-text-decoration: underline;
+text-decoration: none;
 }
 
 .post-card:hover .cover {

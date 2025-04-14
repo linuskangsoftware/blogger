@@ -17,13 +17,7 @@
       </nav>
     </header>
     <main>
-      <div class="profile">
-        <img src="/src/profile_picture" alt="Profile Picture" class="profile-pic" />
-        <div class="profile-text">
-          <p>Student Web Developer, Open-source contributor, and a Robotics Enthusiast. For the past year, I've been competing in First Lego League competeting with team <a style="text-decoration: underline; font-weight: 500;" href="https://bleulegs.au">Bleulegs</a>, now heading into the International Round.</p>
-        </div>
-      </div>
-      <h2>Recent blog posts</h2>
+      <h2>All blog posts</h2>
         <div class="posts">
           <% posts.forEach(post => { %>
             <article class="post-card">
@@ -33,12 +27,11 @@
                 <h2><a href="/post/<%= post.slug %>"><%= post.title %></a></h2>
                 <p class="date"><%= post.date %></p>
                 <p class="preview"><%= post.preview || 'Click to read more...' %></p>
-                <a style="text-decoration: none;"  class="read-more" href="/post/<%= post.slug %>">Read more →</a>
+                <a style="text-decoration: none;" class="read-more" href="/post/<%= post.slug %>">Read more →</a>
               </div>
             </article>
           <% }); %>
         </div>
-        <h2 style="margin-top: 40px; margin-bottom: 20px;">Featured Projects</h2>
     </main>
     <footer>
       <p>Made by <a href="https://github.com/linuskangsoftware/">@linuskangsoftware</a> using a fork of <a href="https://github.com/linuskangsoftware/blogger" target="_blank">Blogger</a></p>
