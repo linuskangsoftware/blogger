@@ -8,7 +8,31 @@
   <title>Linus's Blog</title>
   <link rel="stylesheet" href="/src/home/styles.css" />
 </head>
+<style>
+  .maintenance-banner {
+      background-color: #796302;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .maintenance-banner a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .maintenance-banner a:hover {
+      color: #333;
+      text-decoration: none;
+    }
+</style>
 <body>
+  <div class="maintenance-banner">
+    Please note that this site is still under development and some things might not be working.
+  </div>
     <header>
       <h1 id="blog-name">Blog</h1>
       <nav>
@@ -38,7 +62,6 @@
             </article>
           <% }); %>
         </div>
-        <h2 style="margin-top: 40px; margin-bottom: 20px;">Featured Projects</h2>
     </main>
     <footer>
       <p>Made by <a href="https://github.com/linuskangsoftware/">@linuskangsoftware</a> using a fork of <a href="https://github.com/linuskangsoftware/blogger" target="_blank">Blogger</a></p>

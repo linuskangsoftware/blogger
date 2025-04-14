@@ -8,11 +8,11 @@
   <link href="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/themes/prism-tomorrow.css" rel="stylesheet" />
   <style>
     :root {
-      --bg: #121212;
-      --card-bg: #1e1e1e;
+      --bg: #000000;
+      --card-bg: #161616;
       --text: #ffffff;
       --subtle: #b0b0b0;
-      --accent: #60a5fa;
+      --accent: #ffffff;
       --border-radius: 12px;
       --shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
@@ -92,7 +92,7 @@
     .tags {
         display: inline-block;
         background-color: var(--accent);
-        color: #fff;
+        color: #000000;
         padding: 4px 12px;
         border-radius: 999px;
         font-size: 0.85rem;
@@ -151,9 +151,7 @@
     <h1 id="blog-name">Blog</h1>
     <nav>
       <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a id="loginbutton" href="/login">Login</a>
-      <a id="myaccount" href="/my/account">My Account</a>
+      <a href="/blog/posts">Blog Posts</a>
     </nav>
   </header>
 
@@ -184,8 +182,6 @@
   <footer>
     <p>This site is powered by <a href="https://github.com/linuskangsoftware/blogger">Blogger</a></p>
   </footer>
-
-  <script src="/src/credit.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/prism.js"></script>
   <script>
     async function fetchBlogName() {
@@ -197,30 +193,7 @@
         console.error("Error fetching blog name:", err);
       }
     }
-
-    async function checkSessionToken(sessionId) {
-      try {
-        const res = await fetch(`/account/session?sessionId=${sessionId}`);
-        const data = await res.json();
-        if (data.message === "Session is valid") {
-          document.getElementById("loginbutton").style.display = "none";
-        } else {
-          document.getElementById("myaccount").style.display = "none";
-        }
-      } catch (err) {
-        console.error("Session check failed:", err);
-      }
-    }
-
-    function logout(event) {
-      event.preventDefault();
-      localStorage.removeItem("sessionId");
-      window.location.href = "/login";
-    }
-
-    const sessionId = localStorage.getItem("sessionId");
     fetchBlogName();
-    checkSessionToken(sessionId);
   </script>
 </body>
 </html>
