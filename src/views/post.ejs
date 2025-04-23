@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -50,9 +49,19 @@
       justify-content: space-between;
       align-items: center;
       padding-bottom: 20px;
-      margin-bottom: 40px;
+      margin-bottom: 0;
       border-bottom: 1px solid var(--card-bg);
     }
+
+    article img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 30px auto;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
 
     h1#blog-name {
       margin: 0;
@@ -68,7 +77,7 @@
     }
 
     .container {
-      background-color: var(--card-bg);
+      background-color: #000000;
       border-radius: var(--border-radius);
       padding: 40px 30px;
       box-shadow: var(--shadow);
@@ -136,17 +145,56 @@
     }
 
     .post-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .post-date {
+      padding: 4px 12px;
+      border: 1px solid var(--subtle);
+      border-radius: 10px;
+      color: var(--subtle);
+      font-size: 0.85rem;
+      font-weight: 500;
+      background-color: transparent;
+    }
+
+    @media (max-width: 600px) {
+    .post-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .post-title {
+      font-size: 1.6rem;
+    }
+
+    .tags {
+      margin-left: 0;
+      margin-top: 4px;
+    }
+
+    .metadata {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+
+    body {
+      padding: 30px 30px;
+    }
+
+    .container {
+      padding: 30px 20px;
+    }
+  }
   </style>
 </head>
-
 <body>
-  <!-- Navbar -->
   <header>
     <h1 id="blog-name">Blog</h1>
     <nav>
@@ -154,8 +202,6 @@
       <a href="/blog/posts">Blog Posts</a>
     </nav>
   </header>
-
-  <!-- Blog Post Content -->
   <div class="container">
     <div class="post-header">
         <div class="post-title"><%= title %></div>
@@ -163,22 +209,16 @@
             <%= tags.length > 0 ? tags.join(", ") : "None" %>
         </div>
     </div>
-
     <div class="metadata">
-      <span>Author: <%= author %></span>
-      <span>Date: <%= date %></span>
+      <span class="post-date"><strong><%= author %></strong> (<%= date %>)</span>
     </div>
-
     <article>
       <div><%- content %></div>
     </article>
-
     <div class="back-link">
       <a href="/">← Back to Blog</a>
     </div>
   </div>
-
-  <!-- Footer -->
   <footer>
     <p>This site is powered by <a href="https://github.com/linuskangsoftware/blogger">Blogger</a></p>
   </footer>

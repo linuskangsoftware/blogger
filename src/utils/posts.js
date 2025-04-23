@@ -1,20 +1,23 @@
 const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
+const removeMd = require("remove-markdown");
 const postsDir = path.join(__dirname, "../posts");
 
 function getPosts() {
     if (!fs.existsSync(postsDir)) return [];
     const files = fs.readdirSync(postsDir);
+
     return files
-    .filter(file => file.endsWith(".md"))
-    .map(file => {
-        const filePath = path.join(postsDir, file);
-        const fileContent = fs.readFileSync(filePath, "utf-8");
-        const { data, content } = matter(fileContent);
-        const preview = content.slice(0, 100) + "...";
-        return { ...data, slug: file.replace(".md", ""), preview };
-    });
+        .filter(file => file.endsWith(".md"))
+        .map(file => {
+            const filePath = path.join(postsDir, file);
+            const fileContent = fs.readFileSync(filePath, "utf-8");
+            const { data, content } = matter(fileContent);
+            const plainText = removeMd(content).replace(/\n/g, " ");
+            const preview = plainText.slice(0, 100).trim() + "...";
+            return { ...data, slug: file.replace(".md", ""), preview };
+        });
 }
 
 function getNumberOfPosts(count = null) {
@@ -27,11 +30,12 @@ function getNumberOfPosts(count = null) {
             const filePath = path.join(postsDir, file);
             const fileContent = fs.readFileSync(filePath, "utf-8");
             const { data, content } = matter(fileContent);
-            const preview = content.slice(0, 100) + "...";
+            const plainText = removeMd(content).replace(/\n/g, " ");
+            const preview = plainText.slice(0, 100).trim() + "...";
             return { ...data, slug: file.replace(".md", ""), preview };
         })
-        .filter(post => post.date) // Make sure posts have a date
-        .sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort newest first
+        .filter(post => post.date)
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
 
     return count ? posts.slice(0, count) : posts;
 }
