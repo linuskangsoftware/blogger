@@ -192,6 +192,24 @@
       padding: 30px 20px;
     }
   }
+
+  blockquote {
+  background-color: #121212;
+  border-left: 4px solid var(--accent);
+  padding: 16px 20px;
+  border-radius: var(--border-radius);
+  margin: 20px 0;
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+blockquote::before {
+  content: "💡 Note";
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  color: var(--accent);
+}
   </style>
 </head>
 <body>
