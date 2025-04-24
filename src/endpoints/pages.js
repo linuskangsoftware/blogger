@@ -26,7 +26,7 @@ router.get("/post/:slug", (req, res) => {
 
 
 router.get("/", (req, res) => {
-    const posts = getNumberOfPosts(2);
+    const posts = getNumberOfPosts(3);
     res.render("home", { posts });
 });
 
