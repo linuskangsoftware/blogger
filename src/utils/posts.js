@@ -15,7 +15,7 @@ function getPosts() {
             const fileContent = fs.readFileSync(filePath, "utf-8");
             const { data, content } = matter(fileContent);
             const plainText = removeMd(content).replace(/\n/g, " ");
-            const preview = plainText.slice(0, 450).trim() + "...";
+            const preview = plainText.slice(0, 250).trim() + "...";
             return { ...data, slug: file.replace(".md", ""), preview };
         })
 
@@ -33,7 +33,7 @@ function getNumberOfPosts(count = null) {
             const fileContent = fs.readFileSync(filePath, "utf-8");
             const { data, content } = matter(fileContent);
             const plainText = removeMd(content).replace(/\n/g, " ");
-            const preview = plainText.slice(0, 600).trim() + "...";
+            const preview = plainText.slice(0, 300).trim() + "...";
             return { ...data, slug: file.replace(".md", ""), preview };
         })
         .filter(post => post.date)
