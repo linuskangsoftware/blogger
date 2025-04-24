@@ -201,11 +201,16 @@
   margin: 20px 0;
   color: var(--text);
   box-shadow: var(--shadow);
-  font-size: 0.9rem; /* smaller text size */
+  font-size: 18px;
+}
+
+blockquote p {
+  margin: 0;
+  font-size: 15px; /* force paragraphs inside blockquotes to match */
 }
 
 blockquote::before {
-  content: "💡 Note";
+  content: "Note";
   font-weight: bold;
   display: block;
   margin-bottom: 8px;
