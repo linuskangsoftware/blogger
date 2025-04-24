@@ -17,7 +17,9 @@ function getPosts() {
             const plainText = removeMd(content).replace(/\n/g, " ");
             const preview = plainText.slice(0, 450).trim() + "...";
             return { ...data, slug: file.replace(".md", ""), preview };
-        });
+        })
+
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
 function getNumberOfPosts(count = null) {

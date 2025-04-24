@@ -7,36 +7,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Linus's Blog</title>
   <link rel="stylesheet" href="/src/home/styles.css" />
+  <style>
+    #preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000; /* You can match your theme */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #fff;
+  border-top: 5px solid grey;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+  </style>
 </head>
 <body>
-    <header>
-      <h1 id="blog-name">Blog</h1>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/blog/posts">Blog Posts</a>
-      </nav>
-    </header>
-    <main>
-      <h2>All blog posts</h2>
-        <div class="posts">
-          <% posts.forEach(post => { %>
-            <article class="post-card">
-              <img src="<%= post.coverImage || '/default.jpg' %>" alt="Cover Image" class="cover" />
-              <div class="content">
-                <span class="badge"><%= post.badge || "General" %></span>
-                <h2><a href="/post/<%= post.slug %>"><%= post.title %></a></h2>
-                <p class="date"><%= post.date %></p>
-                <p class="preview"><%= post.preview || 'Click to read more...' %></p>
-                <a style="text-decoration: none;" class="read-more" href="/post/<%= post.slug %>">Read more →</a>
-              </div>
-            </article>
-          <% }); %>
-        </div>
-    </main>
-    <footer>
-      <p>Made by <a href="https://github.com/linuskangsoftware/">@linuskangsoftware</a> using a fork of <a href="https://github.com/linuskangsoftware/blogger" target="_blank">Blogger</a></p>
-    </footer>
-  </body>
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>
+    <div class="main-content">
+      <header>
+        <h1 id="blog-name">Blog</h1>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/blog/posts">Blog Posts</a>
+        </nav>
+      </header>
+      <main>
+        <h2>All blog posts</h2>
+          <div class="posts">
+            <% posts.forEach(post => { %>
+              <article class="post-card">
+                <img src="<%= post.coverImage || '/default.jpg' %>" alt="Cover Image" class="cover" />
+                <div class="content">
+                  <span class="badge"><%= post.badge || "General" %></span>
+                  <h2><a href="/post/<%= post.slug %>"><%= post.title %></a></h2>
+                  <p class="date"><%= post.date %></p>
+                  <p class="preview"><%= post.preview || 'Click to read more...' %></p>
+                  <a style="text-decoration: none;" class="read-more" href="/post/<%= post.slug %>">Read more →</a>
+                </div>
+              </article>
+            <% }); %>
+          </div>
+      </main>
+      <footer>
+        <p>Made by <a href="https://github.com/linuskangsoftware/">@linuskangsoftware</a> using a fork of <a href="https://github.com/linuskangsoftware/blogger" target="_blank">Blogger</a></p>
+      </footer>
+    </body>
+    </div>
 <script>
     async function fetchBlogName() {
       try {
@@ -51,5 +85,10 @@
       }
     }
     fetchBlogName();
+
+    window.addEventListener('load', function () {
+    document.getElementById('preloader').style.display = 'none';
+    document.getElementById('main-content').style.display = 'block';
+  });
 </script>
 </html>
