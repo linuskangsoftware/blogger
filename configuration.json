@@ -1,11 +1,11 @@
 {
-    "port": 4100,
+    "port": 3000,
     "host": "0.0.0.0",
     "blog": {
-        "blog_name": "Linus's Blog",
-        "owner": "Linus Kang",
+        "blog_name": "My new blog",
+        "owner": "Linus",
         "about-card": {
-            "description": "Student Web Developer, Open-source contributor, and a Robotics Enthusiast. For the past year, I've been competing in First Lego League with team Bleulegs, now heading into the International Round."
+            "description": "Welcome to your new blog! Follow the instructions on how to setup Blogger at https://to.linuskang.au/setupblogger"
         }
     }
 }
