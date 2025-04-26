@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linus's Blog | Introducing Blogger</title>
+  <meta name="description" content="Read more about Introducing Blogger on Linus's Blog" />
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/themes/prism-tomorrow.css" rel="stylesheet" />
+  <meta property="og:title" content="Linus's Blog | Introducing Blogger" />
+  <meta property="og:description" content="Read more about Introducing Blogger on Linus's Blog" />
+  <meta property="og:url" content="https://blog.linuskang.au" />
+  <meta property="og:type" content="website" />
+  <styles>
+    :root {
+    --bg: #000000;
+    --card-bg: #161616;
+    --text: #ffffff;
+    --subtle: #b0b0b0;
+    --accent: #ffffff;
+    --border-radius: 12px;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    line-height: 1.8;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  a:hover {
+      opacity: 0.8;
+      transform: translateY(-2px);
+      text-decoration: none;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--card-bg);
+  }
+
+  article img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+
+
+  h1#blog-name {
+    margin: 0;
+    font-size: 2.2rem;
+  }
+
+  nav a {
+    margin-left: 20px;
+  }
+
+  nav a:first-child {
+    margin-left: 0;
+  }
+
+  .container {
+    background-color: #000000;
+    border-radius: var(--border-radius);
+    padding: 40px 30px;
+    box-shadow: var(--shadow);
+  }
+
+  .post-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .metadata {
+    font-size: 0.95rem;
+    color: var(--subtle);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .tags {
+      display: inline-block;
+      background-color: var(--accent);
+      color: #000000;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      margin-left: 10px;
+      font-weight: 500;
+      text-transform: capitalize;
+  }
+
+  article {
+    margin-top: 30px;
+  }
+
+  article p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+
+  pre[class*="language-"] {
+    margin: 24px 0;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    overflow-x: auto;
+  }
+
+  .back-link {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .back-link a {
+    font-size: 1rem;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--subtle);
+    margin-top: 60px;
+  }
+
+  .post-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .post-date {
+    padding: 4px 12px;
+    border: 1px solid var(--subtle);
+    border-radius: 10px;
+    color: var(--subtle);
+    font-size: 0.85rem;
+    font-weight: 500;
+    background-color: transparent;
+  }
+
+  @media (max-width: 600px) {
+  .post-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .post-title {
+    font-size: 1.6rem;
+  }
+
+  .tags {
+    margin-left: 0;
+    margin-top: 4px;
+  }
+
+  .metadata {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  body {
+    padding: 30px 30px;
+  }
+
+  .container {
+    padding: 30px 20px;
+  }
+}
+
+blockquote {
+background-color: #121212;
+border-left: 4px solid var(--accent);
+padding: 16px 20px;
+border-radius: var(--border-radius);
+margin: 20px 0;
+color: var(--text);
+box-shadow: var(--shadow);
+font-size: 18px;
+}
+
+blockquote p {
+margin: 0;
+font-size: 15px; /* force paragraphs inside blockquotes to match */
+}
+
+blockquote::before {
+content: "Note";
+font-weight: bold;
+display: block;
+margin-bottom: 8px;
+color: var(--accent);
+}
+  </styles>
+</head>
+<body>
+  <div class="container">
+    <div class="post-header">
+        <div class="post-title">Welcome to Blogger</div>
+    </div>
+    <div class="metadata">
+      <span class="post-date"><strong>Last updated: 26/04/2025</span>
+    </div>
+    <article>
+<blockquote>
+<p>Want to see the full blog post? https://to.linuskang.au/bloggerdocs</p>
+</blockquote>
+<p>Blogger is a user-friendly Node.js framework designed for those who want complete control of site features and functions without compromising on simplicity. It allows you to easily set up and manage a sleek, customizable blogging site. This is the exact framework that powers this blogging site.</p>
+<p>You can find the open-sourced code in the repository: <a href="https://github.com/linuskangsoftware/blogger">https://github.com/linuskangsoftware/blogger</a></p>
+<blockquote>
+<p>Please remember that Blogger is still in its early alpha stage! Expect a lot of things to change. A 2.0 announcement will be announced soon once I finish developing it.</p>
+</blockquote>
+<h1>How does Blogger work?</h1>
+<h3>Frontend UI</h3>
+<p>The frontend provides a clean, responsive interface for users to view blog posts and navigate the site. It comes with a basic, ready-to-use layout that you can easily tweak to match your needs. Whether it&#39;s the homepage, post pages, or custom sections, the frontend is fully flexible and can be adjusted to meet your design preferences.</p>
+<h3>Backend</h3>
+<p>The backend is responsible for managing the blog&#39;s data. It handles storing, retrieving, and displaying blog posts, and it works reading <code>.md</code> files in the <code>posts</code> directory. With Blogger, you can easily create new posts, edit existing ones, and manage the structure of your site from the markdown files. The backend is built to be simple to integrate with various content management setups, giving you full control over how you structure and serve content.</p>
+<p>That&#39;s about it. All the complex functions are handled on our side, all you need to do is follow the simple setup process and get blogging!</p>
+<blockquote>
+<p>Certain features shown below have not yet been shipped with the production build. These extra features will be released in the next build (100-6).</p>
+</blockquote>
+<h1>Getting started with Blogger</h1>
+<p>Start by cloning the github repository:</p>
+<pre><code class="language-bash">git clone https://github.com/linuskangsoftware/blogger.git
+cd blogger
+</code></pre>
+<p>Next, you&#39;ll want to install the required libaries by running the <code>npm install</code> command. After that, create the following directories and place them into their respective positions: </p>
+<ul>
+<li><code>/posts</code> directory inside <code>/src</code></li>
+<li><code>/blog_image_assets</code> directory inside <code>/src/views</code></li>
+</ul>
+<p>Your folder structure with the added files/folders should look like this:</p>
+<pre><code class="language-bash">blogger/
+└── src/
+    ├── views/
+    |    └── blog_image_assets/
+    └── posts/
+</code></pre>
+<p>After that, head to <code>configuration.json</code> and edit the following settings:</p>
+<pre><code class="language-bash">port: The port that you want Blogger to run on.
+host: Where you want Blogger to be accessible, leave 0.0.0.0 for whole network.
+blog/blog-name: What your blog name is. This will be displayed on the blog.
+blog/owner: The owners name. This will be displayed on the footer copyright notices.
+blog/about-card/description: The about-me description for the home page card.
+</code></pre>
+<p>Now, you&#39;ll need a profile picture for the about-me card. Insert a <code>png</code> picture file inside <code>blog_image_assets</code> and name the picture file <code>profile_picture.png</code>.</p>
+<p>Your done! Head to your terminal and start the server:</p>
+<pre><code class="language-bash">npm run dev
+</code></pre>
+<h3>How to post on Blogger</h3>
+<p>Blogger works by reading <code>.md</code> files and displaying them statically to the client. You&#39;ll need to create markdown files in the <code>/posts</code> directory. One per post.</p>
+<blockquote>
+<p>Make sure to name the <code>.md</code> file something easy to view, as the file name will be the path name. So <code>2025-04-24-hello-world.md</code> will become <code>yourblog.com/post/2025-04-24-hello-world</code></p>
+</blockquote>
+<p>Your file should look something like this:</p>
+<pre><code class="language-bash">posts/
+  └── 2025-04-24-hello-world.md
+</code></pre>
+<p>Now, you&#39;ll need content for your file. Go ahead and paste in this template below.</p>
+<pre><code class="language-yaml">---
+title: &quot;My first blog post&quot;
+author: &quot;John Doe&quot;
+date: &quot;2025-04-26&quot;
+tags: [&quot;New&quot;, &quot;First post&quot;]
+badge: &quot;John Doe&quot;
+coverImage: &quot;/blog_image_assets/your_header_image.png&quot;
+---
+
+Hello world!
+</code></pre>
+<p>The stuff at the top of the template is information for what your blog post is about:</p>
+<ul>
+<li>title: The title of your blog post. This will be shown in the sidebar header of your browser and on the homepage.</li>
+<li>autor: The creator of the post. This will be shown inside the post.</li>
+<li>date: When the post was made. Shown both on the homepage and inside the post.</li>
+<li>tags: Any relevant tags for the post. This will only be shown in the post page.</li>
+<li>badge: A small badge displayed on the preview of the blog post.</li>
+<li>coverImage: The header image for the blog post.</li>
+</ul>
+<p>After you finish editing your blog markdown file, you&#39;ll need a header image for your blog to use the <code>coverImage</code> feature. Add any image to the image assets folder and change the path for <code>coverImage</code> to your image name.</p>
+<h3>That&#39;s it!</h3>
+<p>After configuring that, go ahead and start writing your post in markdown below where it says <code>Hello World!</code> and your done! You should see your post dynamically update on your browser - no need to restart the webserver.</p>
+<h1>API Reference</h1>
+<p>The following API&#39;s below are for people who want to use Blogger Server and customise their own custom frontend. These API&#39;s will be everything you&#39;ll need to achieve this.</p>
+<h3>/v1/name</h3>
+<pre><code class="language-bash">Returns the blog&#39;s name
+
+METHOD:
+- GET /v1/name
+
+HEADERS:
+- Accept: application/json
+
+RESPONSE:
+{
+  &quot;name&quot;: &quot;My blog name&quot;
+}
+</code></pre>
+<h3>/v1/description</h3>
+<pre><code class="language-bash">Returns the blog&#39;s name
+
+METHOD:
+- GET /v1/name
+
+HEADERS:
+- Accept: application/json
+
+RESPONSE:
+{
+  &quot;desc&quot;: &quot;Your blog description&quot;
+}
+</code></pre>
+<h3>/v1/owner</h3>
+<pre><code class="language-bash">Returns the blog&#39;s owner
+
+METHOD:
+- GET /v1/owner
+
+HEADERS:
+- Accept: application/json
+
+RESPONSE:
+{
+  &quot;name&quot;: &quot;Your blog owner name&quot;
+}
+</code></pre>
+<h3>/v1/recent-posts</h3>
+<pre><code class="language-bash">Returns the blog&#39;s most recent posts
+
+METHOD:
+- GET /v1/recent-posts
+
+HEADERS:
+- Accept: application/json
+
+RESPONSE:
+[
+  {
+    &quot;title&quot;: &quot;Introducing Blogger&quot;,
+    &quot;author&quot;: &quot;Linus Kang&quot;,
+    &quot;date&quot;: &quot;2025-04-26&quot;,
+    &quot;tags&quot;: [
+      &quot;Blog&quot;,
+      &quot;Framework&quot;,
+      &quot;Announcement&quot;,
+      &quot;Nodejs&quot;
+    ],
+    &quot;badge&quot;: &quot;Linus Kang&quot;,
+    &quot;coverImage&quot;: &quot;/blog_image_assets/24.04.2025-introducingblogger-header.png&quot;,
+    &quot;slug&quot;: &quot;2025-04-24.introduction-into-blogger&quot;,
+    &quot;preview&quot;: &quot;Blogger is a user-friendly Node.js framework...&quot;
+  }
+  ...
+]
+</code></pre>
+<h3>/v1/all-posts</h3>
+<pre><code class="language-bash">Returns all of the blog&#39;s posts
+
+METHOD:
+- GET /v1/all-posts
+
+HEADERS:
+- Accept: application/json
+
+RESPONSE:
+[
+  {
+    &quot;title&quot;: &quot;Introducing Blogger&quot;,
+    &quot;author&quot;: &quot;Linus Kang&quot;,
+    &quot;date&quot;: &quot;2025-04-26&quot;,
+    &quot;tags&quot;: [
+      &quot;Blog&quot;,
+      &quot;Framework&quot;,
+      &quot;Announcement&quot;,
+      &quot;Nodejs&quot;
+    ],
+    &quot;badge&quot;: &quot;Linus Kang&quot;,
+    &quot;coverImage&quot;: &quot;/blog_image_assets/24.04.2025-introducingblogger-header.png&quot;,
+    &quot;slug&quot;: &quot;2025-04-24.introduction-into-blogger&quot;,
+    &quot;preview&quot;: &quot;Blogger is a user-friendly Node.js framework...&quot;
+  }
+  ...
+]
+</code></pre>
+<h3>/v1/post/:slug</h3>
+<pre><code class="language-bash">Returns the full blog post with Markdown rendered as HTML
+
+METHOD:
+- GET /v1/post/:slug
+
+HEADERS:
+- Accept: application/json
+
+RESPONSE:
+{
+  &quot;slug&quot;: &quot;2025-04-24.introduction-into-blogger&quot;,
+  &quot;title&quot;: &quot;Introducing Blogger&quot;,
+  &quot;author&quot;: &quot;Linus Kang&quot;,
+  &quot;date&quot;: &quot;2025-04-26&quot;,
+  &quot;tags&quot;: [
+    &quot;Blog&quot;,
+    &quot;Framework&quot;,
+    &quot;Announcement&quot;,
+    &quot;Nodejs&quot;
+  ],
+  &quot;coverImage&quot;: &quot;/blog_image_assets/your_image_header.png&quot;,
+  &quot;badge&quot;: &quot;Linus Kang&quot;,
+  &quot;content&quot;: &quot;&lt;p&gt;HTML content here...&lt;/p&gt;&quot;,
+  &quot;rawContent&quot;: &quot;Markdown **content** here&quot;
+}
+
+
+404 RESPONSE:
+{
+  &quot;error&quot;: &quot;Post not found&quot;
+}
+</code></pre>
+<h1>Current Future Roadmap Features</h1>
+<ul>
+<li>User commenting, sharing</li>
+<li>&quot;Related Posts&quot; widget</li>
+<li>Post searching (desc, title, tags)</li>
+<li>Email server (for subbing - new posts come out)</li>
+</ul>
+<h1>Thanks for reading</h1>
+<p>Blogger has been built by Linus under the Apache-2.0 License, the Terms of the license are available on the Github repository: <a href="https://github.com/linuskangsoftware/blogger">https://github.com/linuskangsoftware/blogger</a></p>
+</div>
+    </article>
+    <div class="back-link">
+      <a href="/">← Back to Blog</a>
+    </div>
+  </div>
+  <footer>
+    <p>This site is powered by <a href="https://github.com/linuskangsoftware/blogger">Blogger</a></p>
+    <p>© 2025 Linus Kang. All rights reserved.</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/prism.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/components/prism-lua.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/components/prism-yaml.min.js"></script>
+  <script>
+    async function fetchBlogName() {
+      try {
+        const res = await fetch("/v1/name");
+        const data = await res.json();
+        document.getElementById("blog-name").textContent = data.name;
+      } catch (err) {
+        console.error("Error fetching blog name:", err);
+      }
+    }
+    fetchBlogName();
+  </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"93624729df1cd71c","version":"2025.4.0-1-g37f21b1","r":1,"token":"7fe1e6396c10498e825a2dc0af0abbbd","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
+</body>
+</html>
