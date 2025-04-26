@@ -1,13 +1,11 @@
 {
     "port": 4100,
     "host": "0.0.0.0",
-    "admins": {
-        "root": {
-            "password": "admin"
-        }
-    },
     "blog": {
         "blog_name": "Linus's Blog",
-        "blog_description": "Linus's Blog is a blog about technology, programming, and more."
+        "owner": "Linus Kang",
+        "about-card": {
+            "description": "Student Web Developer, Open-source contributor, and a Robotics Enthusiast. For the past year, I've been competing in First Lego League with team Bleulegs, now heading into the International Round."
+        }
     }
 }

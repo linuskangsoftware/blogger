@@ -47,8 +47,6 @@ function getPost(slug) {
     if (!fs.existsSync(filePath)) return null;
     const fileContent = fs.readFileSync(filePath, "utf-8");
     const { data, content } = matter(fileContent);
-
-    // Return the parsed data, including coverImage and badge
     return { ...data, content };
 }
 

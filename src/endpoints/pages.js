@@ -6,7 +6,7 @@ const router = express.Router();
 const config = require("../../configuration.json");
 router.get("/post/:slug", (req, res) => {
     const post = getPost(req.params.slug);
-    console.log(post);  // Log the post to inspect the data
+    console.log(post);
 
     if (!post) {
         console.log(`Post not found for slug: ${req.params.slug}`);
@@ -14,13 +14,13 @@ router.get("/post/:slug", (req, res) => {
     }
 
     res.render("post", {
-        title: post.title || "Untitled",  // Default value if title is missing
-        author: post.author || "Unknown",  // Default value if author is missing
-        date: post.date || "No date",  // Default value if date is missing
-        tags: post.tags || [],  // Default empty array if tags are missing
-        content: marked(post.content),  // Use marked to render Markdown to HTML
-        coverImage: post.coverImage || null,  // Ensure coverImage is passed
-        badge: post.badge || "wow",  // Ensure badge is passed
+        title: post.title || "Untitled",
+        author: post.author || "Unknown",
+        date: post.date || "No date",
+        tags: post.tags || [],
+        content: marked(post.content),
+        coverImage: post.coverImage || null,
+        badge: post.badge || "wow",
     });
 });
 

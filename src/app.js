@@ -10,7 +10,7 @@ const config = require("../configuration.json");
 
 const port = config.port || 3000;
 const host = config.host || "0.0.0.0";
-const blogger_version = "1.0.0-4"
+const blogger_version = "1.0.0-5";
 
 const log = logger();
 const app = express();

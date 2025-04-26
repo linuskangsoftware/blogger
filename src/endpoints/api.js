@@ -8,6 +8,14 @@ router.get('/name', (req, res) => {
     res.json({ name: config.blog.blog_name });
 });
 
+router.get('/description', (req, res) => {
+    res.json({ desc: config.blog['about-card'].description });
+});
+
+router.get('/owner', (req, res) => {
+    res.json({ name: config.blog.owner });
+});
+
 router.get("/recent-posts", (req, res) => {
     const posts = getNumberOfPosts(4);
     res.json(posts);
@@ -32,8 +40,8 @@ router.get("/post/:slug", (req, res) => {
         tags: post.tags || [],
         coverImage: post.coverImage || null,
         badge: post.badge || "wow",
-        content: marked(post.content), // HTML version
-        rawContent: post.content // optional: raw markdown too
+        content: marked(post.content),
+        rawContent: post.content
     });
 });
 
