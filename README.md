@@ -1,7 +1,10 @@
 ## Blogger: A Nodejs framework for creating blogging sites.
 Blogger is a all-in-one nodejs framework for people who want a simple, sleek blogging site.
 
-### Getting Started
+> [!WARNING]
+> The following instructions below have been deprecated as of **26/04/2025**. Please visit https://to.linuskang.au/bloggerdocs for the updated instructions on how to set up Blogger.
+
+### Getting Started: Build 104
 To use Blogger, you will need the following installed:
 ``nodejs``
 ``npm``
