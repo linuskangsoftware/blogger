@@ -1,14 +1,16 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
+import { fetchBlogDetails } from "@/lib/utils"
 
-export function Header() {
+export async function Header() {
+  const blogData = await fetchBlogDetails()
   return (
     <header className="sticky top-0 z-50 w-full bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center">
-            <span className="font-semibold text-lg text-black dark:text-white">Linus's Blog</span>
+            <span className="font-semibold text-lg text-black dark:text-white">{blogData.name}</span>
           </Link>
 
           <nav className="flex items-center space-x-1">

@@ -3,6 +3,7 @@ import { BlogCard } from "@/components/blog-card"
 import { TagFilter } from "@/components/tag-filter"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { fetchBlogDetails } from "@/lib/utils"
 
 export default async function Home({
   searchParams,
@@ -13,19 +14,19 @@ export default async function Home({
   const tags = await getAllTags()
   const selectedTag = searchParams.tag
 
+  const blogData = await fetchBlogDetails()
+
   const filteredPosts = selectedTag ? posts.filter((post) => post.tags.includes(selectedTag)) : posts
 
   return (
     <div className="min-h-screen bg-white dark:bg-black">
       <Header />
-
-      {/* Hero Section */}
       <section className="border-b border-gray-200 dark:border-gray-800">
         <div className="container mx-auto px-6 py-20 max-w-6xl">
           <div className="max-w-3xl">
-            <h1 className="text-6xl font-bold text-black dark:text-white mb-6 tracking-tight leading-none">Linus Kang's Blog</h1>
+            <h1 className="text-6xl font-bold text-black dark:text-white mb-6 tracking-tight leading-none">{blogData.name}</h1>
             <p className="text-2xl text-gray-600 dark:text-gray-400 leading-relaxed">
-              Latest thoughts on development, design, and everything in between.
+              {blogData.description}
             </p>
           </div>
         </div>

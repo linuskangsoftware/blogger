@@ -1,14 +1,17 @@
-export function Footer() {
+import { fetchBlogDetails } from "@/lib/utils"
+
+export async function Footer() {
+  const blogData = await fetchBlogDetails()
   return (
     <footer className="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
       <div className="container mx-auto px-6 py-16 max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
-              <span className="font-semibold text-black dark:text-white">Linus's Blog</span>
+              <span className="font-semibold text-black dark:text-white">{blogData.name}</span>
             </div>
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed max-w-md">
-              A blog on my latest thoughts on web development, engineering design, and everything in between.
+              {blogData.description}
             </p>
           </div>
 
@@ -73,7 +76,7 @@ export function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-200 dark:border-gray-800 pt-8 mt-12">
-          <p className="text-gray-500 dark:text-gray-500 text-sm">© 2025 Linus's Blog. This site is powered by <strong>Blogger</strong>.</p>
+          <p className="text-gray-500 dark:text-gray-500 text-sm">&copy; 2025 {blogData.name}. This site is powered by <strong>Blogger</strong>.</p>
         </div>
       </div>
     </footer>

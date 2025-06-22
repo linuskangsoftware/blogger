@@ -7,20 +7,15 @@ Blogger is your all-in-one blogging platform framework built in **Next.js** and 
 Run the following to get a development instance running.
 
 ```bash
-# Clone the repo and install dependencies
 git clone https://github.com/linuskangsoftware/blogger
 cd blogger
-npm install
 
-# Configure .env
-cp .env.example .env.local
-npx prisma migrate dev --name init
+sudo bash setup.sh # Follow the installer instructions
+```
 
-# Setup post directories
-mkdir posts
-mkdir public/blogassets # Optional: for assets
+After, you can run Blogger using ``npm``.
 
-# Start the development server
+```bash
 npm run dev
 ```
 
