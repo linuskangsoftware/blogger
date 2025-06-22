@@ -2,6 +2,11 @@
 
 echo "🚀 Blogger V2.0.0 Installer"
 
+echo "🕹️ Checking packages..."
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y nodejs npm
+
 echo "📦 Installing Node dependencies..."
 npm install --force
 

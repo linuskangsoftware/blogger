@@ -10,7 +10,8 @@ Run the following to get a development instance running.
 git clone https://github.com/linuskangsoftware/blogger
 cd blogger
 
-sudo bash setup.sh # Follow the installer instructions
+# Run the installer and follow instructions
+sudo bash setup.sh
 ```
 
 After, you can run Blogger using ``npm``.
