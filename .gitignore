@@ -30,3 +30,7 @@ next-env.d.ts
 # project
 /posts
 /public
+
+# vitepress
+docs/.vitepress/dist
+docs/.vitepress/cache
