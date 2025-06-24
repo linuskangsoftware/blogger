@@ -24,7 +24,7 @@ Now, you can head to the **admin panel** at ``http://localhost:3000/admin`` to c
 
 ## Docs & Support
 
-You can find the full in-depth documentation at https://linus.id.au/bd. It coveres everything in Blogger in full detail.
+You can find the full in-depth documentation at https://blogger-docs.linuskang.au. It coveres everything in Blogger in full detail.
 
 ## Licensing
 

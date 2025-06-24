@@ -26,10 +26,16 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Utilities',
+        items: [
+          { text: 'API Reference', link: '/utils/apis' },
+          { text: 'Helper Functions', link: '/utils/helpers' },
+        ]
+      },
+      {
         text: 'Miscellaneous',
         items: [
-          { text: 'API Reference', link: '/misc/apis' },
-          { text: 'Documentation', link: '/misc/docs' },
+          { text: 'Docs Info', link: '/misc/docs' },
           { text: 'Credits', link: '/misc/credits' },
         ]
       },
