@@ -11,8 +11,16 @@ function ensurePostsDirectory() {
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
+
+    const authHeader = request.headers.get("Authorization")
+    const token = authHeader?.split(" ")[1] // Expect Bearer token
+
+    if (token !== process.env.API_TOKEN) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+    }
+
     ensurePostsDirectory()
     const files = fs.readdirSync(postsDirectory)
     const posts = files
@@ -43,6 +51,14 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
+
+    const authHeader = request.headers.get("Authorization")
+    const token = authHeader?.split(" ")[1] // Expect Bearer token
+
+    if (token !== process.env.API_TOKEN) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+    }
+
     ensurePostsDirectory()
     const { filename, title, date, author, excerpt, tags, content } = await request.json()
     if (!filename || !title) {

@@ -6,7 +6,16 @@ import matter from "gray-matter"
 const postsDirectory = path.join(process.cwd(), "posts")
 
 export async function GET(request: NextRequest, { params }: { params: { slug: string } }) {
+
   try {
+
+    const authHeader = request.headers.get("Authorization")
+    const token = authHeader?.split(" ")[1]
+
+    if (token !== process.env.API_TOKEN) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+    }
+
     const filePath = path.join(postsDirectory, `${params.slug}.md`)
     if (!fs.existsSync(filePath)) {
       return NextResponse.json({ error: "Post not found" }, { status: 404 })
@@ -32,6 +41,14 @@ export async function GET(request: NextRequest, { params }: { params: { slug: st
 
 export async function PUT(request: NextRequest, { params }: { params: { slug: string } }) {
   try {
+
+    const authHeader = request.headers.get("Authorization")
+    const token = authHeader?.split(" ")[1]
+
+    if (token !== process.env.API_TOKEN) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+    }
+
     const { title, date, author, excerpt, tags, content, newSlug } = await request.json()
     const oldFilePath = path.join(postsDirectory, `${params.slug}.md`)
     if (!fs.existsSync(oldFilePath)) {
@@ -65,6 +82,14 @@ export async function PUT(request: NextRequest, { params }: { params: { slug: st
 
 export async function DELETE(request: NextRequest, { params }: { params: { slug: string } }) {
   try {
+
+    const authHeader = request.headers.get("Authorization")
+    const token = authHeader?.split(" ")[1]
+
+    if (token !== process.env.API_TOKEN) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+    }
+
     const filePath = path.join(postsDirectory, `${params.slug}.md`)
     if (!fs.existsSync(filePath)) {
       return NextResponse.json({ error: "Post not found" }, { status: 404 })
