@@ -83,6 +83,6 @@ Now, you can head to the **admin panel** at ``http://localhost:3000/admin`` to c
 
 ::: tip Note
 
-For custom installations, if your seeking custom components, check out the [API Reference](/misc/apis) for the Blogger APIs.
+For custom installations, if your seeking custom components, check out the [API Reference](/utils/apis) for the Blogger APIs.
 
 :::
