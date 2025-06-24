@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: "Blogger Docs",
+  base: '/blogger/',
   description: "The documentation site for all things Blogger.",
   lastUpdated: true,
   cleanUrls: true,
