@@ -195,3 +195,81 @@ export async function getPostsByTag(tag: string): Promise<BlogPostMeta[]> {
   const posts = await getAllPosts()
   return posts.filter((post) => post.tags.includes(tag))
 }
+
+export async function searchPosts(query: string): Promise<BlogPostMeta[]> {
+  const posts = await getAllPosts()
+  const lowerQuery = query.toLowerCase()
+
+  return posts.filter(
+    (post) =>
+      post.title.toLowerCase().includes(lowerQuery) ||
+      post.excerpt.toLowerCase().includes(lowerQuery) ||
+      post.tags.some((tag) => tag.toLowerCase().includes(lowerQuery))
+  )
+}
+
+export async function getPostsByYear(year: string): Promise<BlogPostMeta[]> {
+  const posts = await getAllPosts()
+  return posts.filter((post) => post.date.startsWith(year))
+}
+
+export async function getPostSlugs(): Promise<string[]> {
+  const posts = await getAllPosts()
+  return posts.map((post) => post.slug)
+}
+
+export async function getPostYears(): Promise<string[]> {
+  const posts = await getAllPosts()
+  const years = posts.map((post) => post.date.slice(0, 4))
+  return Array.from(new Set(years)).sort((a, b) => Number(b) - Number(a))
+}
+
+export async function getRelatedPosts(slug: string, tagMatchCount = 1): Promise<BlogPostMeta[]> {
+  const posts = await getAllPosts()
+  const current = posts.find((post) => post.slug === slug)
+  if (!current) return []
+
+  return posts
+    .filter((post) => post.slug !== slug)
+    .filter((post) => {
+      const matchCount = post.tags.filter((tag) => current.tags.includes(tag)).length
+      return matchCount >= tagMatchCount
+    })
+}
+
+export async function getPostsByAuthor(author: string): Promise<BlogPostMeta[]> {
+  const posts = await getAllPosts()
+  return posts.filter((post) => post.author.toLowerCase() === author.toLowerCase())
+}
+
+export function deletePost(slug: string): boolean {
+  const filePath = path.join(postsDirectory, `${slug}.md`)
+  if (!fs.existsSync(filePath)) return false
+
+  try {
+    fs.unlinkSync(filePath)
+    return true
+  } catch (err) {
+    console.error(`Failed to delete ${slug}:`, err)
+    return false
+  }
+}
+
+export function createPost(meta: BlogPostMeta, markdownContent: string): boolean {
+  const filePath = path.join(postsDirectory, `${meta.slug}.md`)
+  const frontMatter = matter.stringify(markdownContent, {
+    title: meta.title,
+    date: meta.date,
+    author: meta.author,
+    excerpt: meta.excerpt,
+    tags: meta.tags
+  })
+
+  try {
+    fs.writeFileSync(filePath, frontMatter, "utf8")
+    return true
+  } catch (err) {
+    console.error("Failed to create post:", err)
+    return false
+  }
+}
