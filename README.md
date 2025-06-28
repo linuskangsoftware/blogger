@@ -32,9 +32,9 @@ You can find the full in-depth documentation at https://blogger-docs.linuskang.a
 
 ## Licensing
 
-Blogger is licensed under the **Attribution-NonCommercial 2.0 International** license.
+Blogger is licensed under the **Attribution-NonCommercial 4.0 International** license.
 
-Please refer to **CC BY-NC 2.0** for more information.
+Please refer to **CC BY-NC 4.0** for more information.
 
 ### The license permits:
 
