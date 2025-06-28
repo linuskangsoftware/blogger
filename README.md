@@ -20,7 +20,11 @@ After, you can run Blogger using ``npm``.
 npm run dev
 ```
 
-Now, you can head to the **admin panel** at ``http://localhost:3000/admin`` to create and manage your blog posts, as well as configuring additional settings.
+Now, you can head to the site at ``http://localhost:3000`` to view and manage your blog posts, as well as configuring additional settings.
+
+## Optional: Administrator panel
+
+If your wanting to use the official Blogger Admin Panel as an addon for Blogger, you can access the tutorial and steps on how to use it inside the ``linuskangsoftware/blogger-admin-panel`` repo [here](https://github.com/linuskangsoftware/blogger-admin-panel)
 
 ## Docs & Support
 
