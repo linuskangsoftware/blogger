@@ -25,20 +25,20 @@ Returns a JSON response with the following fields:
 | `name`      | string | The blog's name (from `env.BLOG_NAME`)                |
 | `description` | string | A short description of the blog (from `env.BLOG_DESCRIPTION`) |
 
-## Example Response
-
-```json
-{
-  "version": "1.0.0",
-  "name": "My Awesome Blog",
-  "description": "A blog about tech and coding"
-}
-```
-
 ### Usage
 
 ```ts
-const response = await fetch('/api')
+const response = await fetch('/api', {
+  headers: {
+    'Authorization': 'Bearer YOUR_API_TOKEN_HERE',
+    'Content-Type': 'application/json',
+  },
+})
+
+if (!response.ok) {
+  throw new Error(`Error ${response.status}: ${response.statusText}`)
+}
+
 const blogInfo = await response.json()
 console.log(blogInfo.version, blogInfo.name, blogInfo.description)
 ```
