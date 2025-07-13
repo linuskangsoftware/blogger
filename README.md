@@ -22,9 +22,23 @@ npm run dev
 
 Now, you can head to the site at ``http://localhost:3000`` to view and manage your blog posts, as well as configuring additional settings.
 
-## Documentation
+### Creating blog posts
 
-You can find the full in-depth documentation at https://blogger-docs.linuskang.au. It coveres everything in Blogger in full detail.
+Create a markdown file inside ``/posts`` and edit the contents! Blogger will automatically update posts once saved.
+
+```md
+---
+title: "Take a plunge into the deep blue plastic sea"
+date: "2024-06-20"
+author: "Linus Kang"
+excerpt: "A test blog post to showcase Blogger's features."
+tags: ["wwf", "surfrider", "ads"]
+---
+
+# Hello this is my blog post
+```
+
+Documentation is available at https://blogger-docs.linuskang.au.
 
 ## Licensing
 
