@@ -41,7 +41,6 @@ export default async function BlogPost({
         </Link>
 
         <article>
-          {/* Header */}
           <header className="mb-12 pb-8 border-b border-gray-200 dark:border-gray-800">
             <div className="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400 mb-6">
               <span className="font-medium">{post.author}</span>

@@ -26,9 +26,17 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Blogger Online Services',
+        items: [
+          { text: 'Overview', link: '/bos' },
+          { text: 'BOS Terms', link: '/bos/terms' },
+          { text: 'BOS Privacy', link: '/bos/privacy' },
+        ]
+      },
+      {
         text: 'Miscellaneous',
         items: [
-          { text: 'Contributing to Docs', link: '/misc/docs' },
+          { text: 'Contributing', link: '/misc/docs' },
           { text: 'Credits', link: '/misc/credits' },
         ]
       },
