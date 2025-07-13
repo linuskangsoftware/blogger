@@ -1,7 +1,16 @@
 {
-  "name": "my-v0-project",
-  "version": "0.1.0",
+  "name": "blogger",
+  "author": "Linus Kang <mail@linus.id.au>",
+  "license": "CC-BY-NC-4.0",
+  "licenses": [
+    {
+      "type": "CC-BY-NC-4.0",
+      "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  ],
+  "version": "2.0.1",
   "private": true,
+  "description": "An all in one, open-source blogging platform.",
   "scripts": {
     "build": "next build",
     "dev": "next dev",

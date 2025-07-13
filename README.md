@@ -30,7 +30,7 @@ You can find the full in-depth documentation at https://blogger-docs.linuskang.a
 
 Blogger is licensed under the **Attribution-NonCommercial 4.0 International** license.
 
-Please refer to **CC BY-NC 4.0** for more information.
+Please refer to **[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)** for more information.
 
 ### The license permits:
 
