@@ -1,6 +1,6 @@
 # Blogger: An all-in-one blogging platform
 
-Blogger is your all-in-one blogging platform framework built in **Next.js** and **Shadcn/ui**, making it easy for you to manage your own blog. It features user commenting, admin panel, and expansive configuration options.
+Blogger is your all-in-one blogging platform framework built in **Next.js** and **Shadcn/ui**, making it easy for you to manage your own blog. It features markdown-first blog post editing, user commenting (very soon), open-sourced APIs, and expansive configuration options.
 
 ## Quick start
 
@@ -22,11 +22,7 @@ npm run dev
 
 Now, you can head to the site at ``http://localhost:3000`` to view and manage your blog posts, as well as configuring additional settings.
 
-## Optional: Administrator panel
-
-If your wanting to use the official Blogger Admin Panel as an addon for Blogger, you can access the tutorial and steps on how to use it inside the ``linuskangsoftware/blogger-admin-panel`` repo [here](https://github.com/linuskangsoftware/blogger-admin-panel)
-
-## Docs & Support
+## Documentation
 
 You can find the full in-depth documentation at https://blogger-docs.linuskang.au. It coveres everything in Blogger in full detail.
 
