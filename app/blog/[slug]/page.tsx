@@ -62,7 +62,7 @@ export default async function BlogPost({
             {post.tags.length > 0 && (
               <div className="flex flex-wrap gap-2">
                 {post.tags.map((tag) => (
-                  <Link key={tag} href={`/?tag=${encodeURIComponent(tag)}`}>
+                  <Link key={tag} href={`/posts?tag=${encodeURIComponent(tag)}`}>
                     <Badge
                       variant="outline"
                       className="border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-colors"
