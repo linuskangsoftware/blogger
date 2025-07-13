@@ -35,7 +35,7 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
           {post.tags.length > 0 && (
             <div className="flex flex-wrap gap-2">
               {post.tags.map((tag) => (
-                <Link key={tag} href={`/?tag=${encodeURIComponent(tag)}`}>
+                <Link key={tag} href={`/posts?tag=${encodeURIComponent(tag)}`}>
                   <Badge
                     variant="outline"
                     className="border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-colors font-medium"
@@ -73,7 +73,7 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
       {post.tags.length > 0 && (
         <div className="flex flex-wrap gap-2">
           {post.tags.slice(0, 3).map((tag) => (
-            <Link key={tag} href={`/?tag=${encodeURIComponent(tag)}`}>
+            <Link key={tag} href={`/posts?tag=${encodeURIComponent(tag)}`}>
               <Badge
                 variant="secondary"
                 className="bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-xs font-medium"
