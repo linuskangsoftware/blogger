@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /intro/what-is-blogger
+      link: /intro/getting-started
     - theme: alt
       text: Github
-      link: /api-examples
+      link: https://github.com/linuskangsoftware/blogger
 
 #features:
 #  - title: Feature A

@@ -8,21 +8,14 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Docs', link: '/intro/what-is-blogger' }
+      { text: 'Docs', link: '/intro/getting-started' }
     ],
 
     sidebar: [
       {
         text: 'Introduction',
         items: [
-          { text: 'What is Blogger', link: '/intro/what-is-blogger' },
           { text: 'Getting Started', link: '/intro/getting-started' }
-        ]
-      },
-      {
-        text: 'Guides',
-        items: [
-          { text: 'Creating posts', link: '/guides/creating-blog-posts' },
         ]
       },
       {
@@ -35,7 +28,7 @@ export default defineConfig({
       {
         text: 'Miscellaneous',
         items: [
-          { text: 'Docs Info', link: '/misc/docs' },
+          { text: 'Contributing to Docs', link: '/misc/docs' },
           { text: 'Credits', link: '/misc/credits' },
         ]
       },
