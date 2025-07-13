@@ -1,6 +1,5 @@
 import { getAllPosts, getAllTags } from "@/lib/blog"
 import { BlogCard } from "@/components/blog-card"
-import { TagFilter } from "@/components/tag-filter"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { fetchBlogDetails } from "@/lib/utils"
@@ -33,9 +32,7 @@ export default async function Home({
       </section>
 
       <main className="container mx-auto px-6 py-16 max-w-6xl">
-        <TagFilter tags={tags} selectedTag={selectedTag} />
 
-        {/* Posts */}
         <h1 className="text-4xl font-semibold text-black dark:text-white mb-8">Latest Posts</h1>
         <div className="space-y-12">
           {filteredPosts.length > 0 ? (

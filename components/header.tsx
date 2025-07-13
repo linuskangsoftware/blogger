@@ -23,7 +23,7 @@ export async function Header() {
                 Home
               </Button>
             </Link>
-            <Link href="/#topics">
+            <Link href="/posts">
               <Button
                 variant="ghost"
                 size="sm"
